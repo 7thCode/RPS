@@ -1,7 +1,0 @@
-ul.list-group(ng-controller="ImageController", ng-cloak)
-    li.list-group-item(ng-repeat="file in files")
-        .row(ng-class="{selected: hover}", ng-mouseenter="hover = true", ng-mouseleave="hover = false")
-            .col-xs-4
-                img.img-responsive(ng-src="/files/api/" + '{{file.metadata.userid}}' + "/" + '{{file.filename}}')
-            .col-xs-8
-                div(style="word-wrap: break-word;") /files/api/{{file.metadata.userid}}/{{file.filename}}
