@@ -39,6 +39,21 @@
                                 span(ng-messages="validate.max.$error")
                                     span.error-message(ng-message="maxlength") もう少し短く
                                 input.form-control.no-zoom#max(ng-model="max.value", type="number", name='max', ng-maxlength="6")
+
+                    .row
+                        .col-xs-6
+                            .form-group
+                                label(for="patternmessage") Pattern Message
+                                span(ng-messages="validate.maxmessage.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#patternmessage(ng-model="pattern.message", type="text", name='pattermmessage', ng-maxlength="50")
+                        .col-xs-6
+                            .form-group
+                                label(for="pattern") Pattern
+                                span(ng-messages="validate.pattern.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#pattern(ng-model="pattern.value", type="text", name='pattern', ng-maxlength="100")
+
                     .row
                         .col-xs-8
                             .form-group

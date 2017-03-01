@@ -353,7 +353,25 @@ FormBuilderControllers.controller('FormBuilderController', ["$scope","$document"
             });
 
             modalRegist.result.then((dialog_scope): void => {
-                let validator = {min: {value: dialog_scope.min.value, message: dialog_scope.min.message}, max: {value: dialog_scope.max.value, message: dialog_scope.max.message}, required: {value: dialog_scope.required.value, message: dialog_scope.required.message}};
+                let validator = {
+                    min: {
+                        value: dialog_scope.min.value,
+                        message: dialog_scope.min.message
+                    },
+                    max: {
+                        value: dialog_scope.max.value,
+                        message: dialog_scope.max.message
+                    },
+                    pattern: {
+                        value: dialog_scope.pattern.value,
+                        message: dialog_scope.pattern.message
+                    },
+                    required: {
+                        value: dialog_scope.required.value,
+                        message: dialog_scope.required.message
+                    }
+                };
+
                 FormBuilderService.AddElement(ElementsService.Field(dialog_scope.key, validator));
             }, (): void => {
             });
