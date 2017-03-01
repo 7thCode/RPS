@@ -582,9 +582,13 @@ FormBuilderServices.service('ElementsService', ["FormBuilderService",
                 if (val.min.message) {
                     result["ng-minlength"] = val.min.value;
                 }
+                if (val.pattern.message) {
+                    result["ng-pattern"] = val.pattern.value;
+                }
                 if (val.required.message) {
                     result["required"] = val.required.value;
                 }
+
                 return result;
             };
 
@@ -664,6 +668,23 @@ FormBuilderServices.service('ElementsService', ["FormBuilderService",
                     }
                     ,
                     contents: validator.max.message,
+                    events: {}
+                };
+                new_field.elements.push(max);
+            }
+
+            if (validator.pattern) {
+                let max = {
+                    type: "span",
+                    id: id + "_fielderror_pattern",
+                    parent: id + "_fielderrors",
+
+                    label: "",
+                    attributes: {
+                        "ng-message": "pattern", class: "error-message"
+                    }
+                    ,
+                    contents: validator.pattern.message,
                     events: {}
                 };
                 new_field.elements.push(max);
