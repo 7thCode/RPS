@@ -1,0 +1,43 @@
+extends  ../../backoffice_layout
+
+block content
+    section.content(ng-controller="RewritingController")
+        include ../../systems/common/progress
+        include ../../services/backoffice/partial/navbar
+        .container-fluid(style="margin-top:6rem;")
+            article
+                h1#title.limelight(style="text-align:left;font-size: 14.0vw;font-weight: 700;margin: 50px 0 2vw 0;") #{status}
+                p.quicksand(style='margin: 20px 0 2% 0;font-size: 6vw;text-shadow: 0 3px 0 #7f8c8d;font-weight: 100;') #{message}
+            article
+                form(role='form', name="validate")
+                    div(ng-repeat="object in objects")
+                        div()
+                        div(ng-if="object.contents.attribute == 'folder'",ng-click='chencge_path(object.contents.path+object.contents.url)') {{object.contents.url}}
+                        div(ng-if="object.contents.attribute == 'file'") {{object.contents.url}}
+
+
+                        div(ng-if="object.contents.attribute == 'file'")
+                            input.form-control.no-zoom(type="text",ng-model="title[$index]",placeholder='title')
+                            input.form-control.no-zoom(type="text",ng-model="discription[$index]",placeholder='discription')
+
+                        //div(ng-repeat="file_name in file_names")
+                        //    div(ng-if="file_name.url == html_name")
+                        //        div title
+
+                        //div(style="margin-top:20px;") {{html_name}}
+                        //
+                        //    div title
+                        //    div(ng-repeat=" file in html_names.file.content")
+                        //        div(ng-if="file.url == html_name")
+                        //            input.form-control(type="text",ng-model="file.title",placeholder='title' ng-value="file.title")
+                        //        div(ng-if="file.url != html_name")
+                        //            input.form-control(type="text",ng-model="file.title",placeholder='title')
+                        //
+                        //    div discription
+                        //    div(ng-repeat="file in html_names.file.content")
+                        //        div(ng-if="file.url == html_name")
+                        //            input.form-control(type="text",ng-model="discription.count[title.count]",placeholder='discription',ng-value="file.meta_header[0].attributes.content")
+                        //        div(ng-if="file.url != html_name")
+                        //            input.form-control(type="text",ng-model="discription.count[title.count]",placeholder='discription')
+
+                    button.btn(ng-click="register()") 登録

@@ -1,0 +1,45 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Articles ({{count}})
+        span.pull-right
+                button.btn.btn-info(style="border-radius:0.6rem 0 0 0.6rem;", ng-click="Next()", ng-disabled="progress")
+                    i.fa.fa-chevron-down
+                button.btn.btn-default(style="border-radius:0 0.6rem 0.6rem 0;",ng-click="Prev()", ng-disabled="progress")
+                    i.fa.fa-chevron-up
+
+    .modal-body.noto
+        .row
+            .col-xs-12
+                ul.nav.nav-pills
+                    li(ng-repeat="layout in layouts")
+                        div.select-item(ng-class="{selected: hover}", ng-mouseenter="hover = true", ng-mouseleave="hover = false",ng-click="Get(layout)",style="height:12rem;width:8rem;", ng-hide="progress")
+                            div(style="height:4rem;")
+                                img.center-block.thumbnail(ng-src="/layouts/layout/svg/{{layout.name}}", style="border: 0.1rem #404040 solid;max-height: 4rem;max-width: 6rem;")
+                            div(style="height:8rem;text-align:center;")
+                                .row
+                                    .col-xs-12
+                                        div(style="font-size:1rem;") {{layout.name | limit:20 }}
+                                    .col-xs-12
+                                        div(style="font-size:0.5rem;") ({{layout.content.title | limit:20 }})
+                                    .col-xs-12
+                                        div.hidden-xs(style="font-size:0.5rem;") {{layout.modify | date:'yyyy/MM/dd' }}
+                        div(style="height:12rem;width:8rem;", ng-show="progress")
+                            div(style="height:4rem;")
+                                img.center-block.thumbnail(ng-src="/layouts/layout/svg/{{layout.name}}", style="border: 0.1rem #404040 solid;max-height: 4rem;max-width: 6rem;")
+                            div(style="height:8rem;text-align:center;")
+                                .row
+                                    .col-xs-12
+                                        div(style="font-size:1rem;") {{layout.name | limit:20 }}
+                                    .col-xs-12
+                                        div(style="font-size:0.5rem;") ({{layout.content.title | limit:20 }})
+                                    .col-xs-12
+                                        div.hidden-xs(style="font-size:0.5rem;") {{layout.modify | date:'yyyy/MM/dd' }}
+        .row
+            .col-xs-12
+                include ../../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel()', aria-label="") Cancel

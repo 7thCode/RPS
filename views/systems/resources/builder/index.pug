@@ -1,0 +1,17 @@
+extends ../../../backoffice_layout
+
+block content
+    section.content-header
+        .h6 Builder
+        ol.breadcrumb.hidden-xs.hidden-sm
+            li
+                a.text-gray(href='/backoffice')
+                    i.fa.fa-dashboard
+                    |  Home
+    section.content(ng-controller="ResourceBuilderController")
+        include partial/navbar
+        .row
+            .col-xs-10.col-sm-10
+                include partial/form
+            .col-xs-2.col-sm-2
+                include partial/pallete

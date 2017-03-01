@@ -1,0 +1,58 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Field
+    .modal-body.noto
+        .row.row-padded
+            .col-xs-12(style="word-wrap:break-word;word-break:break-all")
+                ng-form(name="validate")
+                    .row
+                        .col-xs-12
+                            .form-group
+                                label(for="name") Key
+                                span(ng-messages="validate.title.$error")
+                                    span.error-message(ng-message="required") 必須です
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#name(ng-model="key", type="text", name='title', required, ng-maxlength="50")
+                    .row
+                        .col-xs-8
+                            .form-group
+                                label(for="minmessage") Min Message
+                                span(ng-messages="validate.minmessage.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#minmessage(ng-model="min.message", type="text", name='minmessage', ng-maxlength="50")
+                        .col-xs-4
+                            .form-group
+                                label(for="min") Min
+                                span(ng-messages="validate.min.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#min(ng-model="min.value", type="number", name='min', ng-maxlength="6")
+                    .row
+                        .col-xs-8
+                            .form-group
+                                label(for="maxmessage") Max Message
+                                span(ng-messages="validate.maxmessage.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#maxmessage(ng-model="max.message", type="text", name='maxmessage', ng-maxlength="50")
+                        .col-xs-4
+                            .form-group
+                                label(for="max") Max
+                                span(ng-messages="validate.max.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#max(ng-model="max.value", type="number", name='max', ng-maxlength="6")
+                    .row
+                        .col-xs-8
+                            .form-group
+                                label(for="requiredmessage") Requred Message
+                                span(ng-messages="validate.requiredmessage.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#requiredmessage(ng-model="required.message", type="text", name='requiredmessage', ng-maxlength="50")
+
+            .col-xs-12
+                include ../../../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel()', aria-label="") Cancel
+                    button.btn.btn-primary(type="button" ,ng-click='answer();validate.$dirty = false;', ng-disabled="progress || validate.$invalid || !validate.$dirty", aria-label="") OK

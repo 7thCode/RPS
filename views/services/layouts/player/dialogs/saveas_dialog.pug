@@ -1,0 +1,30 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Articles ({{count}})
+        span.pull-right
+            button.btn.btn-info(style="border-radius:6px 0 0 6px;", ng-click="Next()", ng-disabled="progress")
+                i.fa.fa-chevron-down
+            button.btn.btn-default(style="border-radius:0 6px 6px 0;",ng-click="Prev()", ng-disabled="progress")
+                i.fa.fa-chevron-up
+
+    .modal-body.noto
+        .row
+            .col-xs-12(style="word-wrap:break-word;word-break:break-all")
+                ng-form(name="validate")
+                    .row
+                        .col-xs-6
+                            .form-group
+                                label(for="title") Title
+                                span(ng-messages="validate.title.$error")
+                                    span.error-message(ng-message="required") #{messages.required}
+                                    span.error-message(ng-message="maxlength") #{messages.long}
+                                input.form-control.no-zoom#title(ng-model="title", type="text", name='title', required, ng-maxlength="50")
+
+            .col-xs-12
+                include ../../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12.text-center(style="margin:2rem;")
+                button.btn.btn-warning(type="button",ng-click='cancel()', aria-label="", ng-disabled="progress") Cancel
+                button.btn.btn-primary(type="button" ,ng-click='answer();', ng-disabled="progress || validate.$invalid", aria-label="") OK

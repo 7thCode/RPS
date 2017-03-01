@@ -1,0 +1,104 @@
+nav.navbar.navbar-default.navbar-fixed-top.shadow(style="position:fixed;" role="navigation")
+        .container-fluid.noto
+            .navbar-header
+                button.btn-primary.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-navbar')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand.page-scroll(href="/", ng-click="go('/')") Layouts
+                    //i.ion-ios-analytics-outline(style="text-align:center;") #{type}
+            #bs-navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    if user
+                        li.dropdown
+                            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                                | File
+                            ul.dropdown-menu(role="menu")
+                                li
+                                    a(href="#", ng-click="Create();", role="menuitem") Create
+                                li
+                                    a(href="", ng-click="Open();", role="menuitem") Open...
+                                li(ng-class="{disabled: !opened}")
+                                    a(href="", ng-click="opened && Update();", role="menuitem") Save
+                                li.divider
+                                li(ng-class="{disabled: !opened}")
+                                    a(href="", ng-click="opened && UpdateAs();", role="menuitem") Save As...
+                                li.divider
+                                li(ng-class="{disabled: !opened}")
+                                    a(href="", ng-click="opened && Delete();", role="menuitem") Delete
+                        li.dropdown(ng-class="{disabled: !opened}")
+                            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                                | Edit
+                            ul.dropdown-menu(role="menu")
+                                li
+                                    a(href="#", ng-click="opened && Copy();", role="menuitem") Copy
+                                li
+                                    a(href="#", ng-click="opened && Paste();", role="menuitem") Paste
+                                li.divider
+                                li
+                                    a(href="#", ng-click="opened && DeleteSelected();", role="menuitem") Delete
+
+                        li.dropdown(ng-class="{disabled: !opened}")
+                            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                                | Align
+                            ul.dropdown-menu(role="menu")
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(0);", role="menuitem") Align Top
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(1);", role="menuitem") Align Right
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(2);", role="menuitem") Align Bottom
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(3);", role="menuitem") Align Left
+                                li.divider
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(4);", role="menuitem") Contact Top
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(5);", role="menuitem") Contact Left
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(6);", role="menuitem") Contact Bottom
+                                li
+                                    a(href="#", ng-click="opened && SetAlign(7);", role="menuitem") Contact Right
+
+                        li.dropdown(ng-class="{disabled: !opened}")
+                            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                                | Shapes
+                            ul.dropdown-menu(role="menu")
+                                li
+                                    a(href="#", ng-click="opened && AddBox();", role="menuitem") Box
+                                li
+                                    a(href="#", ng-click="opened && AddOval();", role="menuitem") Oval
+                                li
+                                    a(href="#", ng-click="opened && AddBezier();", role="menuitem") Bezier
+                                li
+                                    a(href="#", ng-click="opened && AddText();", role="menuitem") Text
+                                li
+                                    a(href="#", ng-click="opened && AddImage();", role="menuitem") Image
+                                li.divider
+                                li
+                                    a(href="#", ng-click="opened && ToTop();", role="menuitem") ToTop
+                                li
+                                    a(href="#", ng-click="opened && ToBottom();", role="menuitem") ToBottom
+                                li.divider
+                                li
+                                    a(href="#", ng-click="opened && Lock();", role="menuitem") Lock
+                                li
+                                    a(href="#", ng-click="opened && UnLockAll();", role="menuitem") UnLockAll
+                                li.divider
+                                li
+                                    a(href="#", ng-click="opened && Group();", role="menuitem") Group
+                                li
+                                    a(href="#", ng-click="opened && Ungroup();", role="menuitem") Ungroup
+                                //li
+                                    a(href="#", ng-click="hoge1();") hoge
+                        li.dropdown(ng-class="{disabled: !opened}")
+                            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                                | Download
+                            ul.dropdown-menu(role="menu")
+                                li
+                                    a(href="", ng-click="opened && PrintPDF();", role="menuitem") PDF
+                                li
+                                    a(href="", ng-click="opened && PrintSVG();", role="menuitem") SVG
+                                li
+                                    a(href="", ng-click="opened && PrintPNG();", role="menuitem") PNG

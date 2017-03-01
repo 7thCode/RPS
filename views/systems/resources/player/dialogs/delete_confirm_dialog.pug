@@ -1,0 +1,20 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Delete
+        span.pull-right
+            button.btn.btn-box-tool(type='button',ng-click='cancel()')
+                i.fa.fa-times
+    .modal-body.noto
+        .row
+            .col-xs-12
+                div Html {{title}} を削除します。よろしいですか？
+        .row
+            .col-xs-12
+                include ../../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel();', aria-label="") Cancel
+                    button.btn.btn-primary(type="button" ,ng-click='answer();', ng-disabled="progress", aria-label="") OK

@@ -1,0 +1,44 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Select
+    .modal-body.noto
+        .row.row-padded
+            .col-xs-12(style="word-wrap:break-word;word-break:break-all")
+                ng-form(name="validate")
+                    .row
+                        .col-xs-12
+                            .form-group
+                                label(for="name") Key
+                                span(ng-messages="validate.title.$error")
+                                    span.error-message(ng-message="required") 必須です
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#name(ng-model="key", type="text", name='title', required, ng-maxlength="50")
+
+                        .col-xs-12
+                            label(for="contents") contents
+                            div(style="overflow:scroll;")
+                                chips(ng-model='contents',style="height: 36px;")
+                                    chip-tmpl
+                                        .default-chip {{chip}}
+                                            span.fa.fa-times(remove-chip='')
+                                    input#contents(name="contents",style="background-color:transparent;" chip-control)
+                    .row
+                        //.col-xs-4
+                            label.btn.btn-primary(ng-model="required.value" uib-btn-checkbox) required
+                        .col-xs-12
+                            .form-group
+                                label(for="requiredmessage") Requred Message
+                                span(ng-messages="validate.requiredmessage.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#requiredmessage(ng-model="requiredmessage", type="text", name='requiredmessage', ng-maxlength="50")
+
+
+            .col-xs-12.text-center
+                .error-message(style="text-align:center;font-size:1.3rem;margin-top:1rem;font-weight:bold;") {{message}}
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel()', aria-label="") Cancel
+                    button.btn.btn-primary(type="button" ,ng-click='answer();validate.$dirty = false;', ng-disabled="progress || validate.$invalid || !validate.$dirty", aria-label="") OK

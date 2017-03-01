@@ -1,0 +1,38 @@
+extends ../../backoffice_layout
+
+block content
+    section.content-header
+        .h5.text-gray Images
+        ol.breadcrumb.hidden-xs.hidden-sm
+            li
+                a.text-gray(href='/backoffice')
+                    i.fa.fa-dashboard
+                    |  Home
+    section.content(ng-controller="ImageController")
+        include partial/navbar
+        .box.box-info(flow-init)
+            .box-header.with-border
+                div
+                    .box-tools.pull-right
+                        button.btn.btn-box-tool(type='button', data-widget='collapse')
+                            i.fa.fa-minus
+                div
+                    .box-tools.pull-right(flow-name="uploader.flow", flow-files-added="createImage($files);")
+                        button.btn.btn-box-tool(flow-btn type="file", flow-attrs="{accept:'.png,.jpg,.gif,.svg'}")
+                            i.fa.fa-2x.fa-plus-circle.text-primary
+
+                include ../../systems/common/next_prev
+
+            .box-body(style="background-color:#e0e5f0; box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.3) inset" flow-drop)
+                ul.nav.nav-pills.draggable-objects(ng-cloak, style="min-height:120px")
+                    li(ng-repeat="file in files")
+                        div(ng-if="Type(file.metadata.type) == 'image'", ng-class="{selected: hover}", ng-mouseenter="hover = true", ng-mouseleave="hover = false", style="height:12rem;width:16rem;margin-left:auto;margin-right:auto;")
+                            button.btn.btn-danger.btn-xs(ng-click="deleteImage(file.filename);", style="position:relative;top:10px;left:10px;border-radius: 10px") x
+                            div(style="height:8rem;",data-toggle="tooltip" data-placement="top" title="{{file.filename}}")
+                                img.center-block.thumbnail(ng-src="/images/api/" + '{{file.metadata.userid}}' + "/" + '{{file.filename}}', style="max-height: 8rem;max-width: 12rem;box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.3)")
+                            div(style="height:8rem;text-align:center;")
+                                .row
+                                    .col-xs-12
+                                        div(style="word-wrap: break-word;", ng-bind="file.filename | filename:10")
+            .box-footer.clearfix
+                div(ng-bind="message")

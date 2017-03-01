@@ -1,0 +1,24 @@
+extends ../../../backoffice_layout
+
+block content
+    section.content-header
+        .h5.text-gray Player
+        ol.breadcrumb.hidden-xs.hidden-sm
+            li
+                a.text-gray(href='/backoffice')
+                    i.fa.fa-dashboard
+                    |  Home
+    section.content(ng-controller="PlayerController")
+        include ./partial/navbar
+        ng-form(name="validate")
+            div#draggable_area
+                .row
+                    .col-xs-12
+                        include ./partial/select
+                .row
+                    .col-xs-3
+                        include ./partial/article
+                    .col-xs-9
+                        include ./partial/canvas
+            //div
+                include ./partial/dynamic

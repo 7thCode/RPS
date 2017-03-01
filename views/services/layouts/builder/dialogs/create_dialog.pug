@@ -1,0 +1,84 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Create
+        span.pull-right
+            button.btn.btn-xs.btn-box-tool(type='button',ng-click='cancel()')
+                i.fa.fa-times
+    .modal-body.noto
+        .row
+            .col-xs-12(style="word-wrap:break-word;word-break:break-all")
+                ng-form(name="validate")
+                    .row
+                        .col-xs-6
+                            .form-group
+                                label.h6(for="name") Title
+                                span(ng-messages="validate.title.$error")
+                                    span.error-message(ng-message="required") #{messages.required}
+                                    span.error-message(ng-message="maxlength") #{messages.long}
+                                input.form-control.no-zoom#name(ng-model="title", type="text", name='title', required, ng-maxlength="50")
+                        .col-xs-6
+                            .form-group
+                                label.h6(for="author") Author
+                                span(ng-messages="validate.author.$error")
+                                    span.error-message(ng-message="required") #{messages.required}
+                                    span.error-message(ng-message="maxlength") #{messages.long}
+                                input.form-control.no-zoom#author(ng-model="author", type="text", name='author', required, ng-maxlength="50")
+                    .row
+                        .col-xs-12
+                            .form-group
+                                label.h6(for="subject") Subject
+                                span(ng-messages="validate.subject.$error")
+                                    span.error-message(ng-message="required") #{messages.required}
+                                    span.error-message(ng-message="maxlength") #{messages.long}
+                                input.form-control.no-zoom#subject(ng-model="subject", type="text", name='subject', required, ng-maxlength="50")
+
+                    .row
+                        .col-xs-4
+                            .row
+                                .col-xs-6
+                                    .form-group
+                                        label.h6(for="dpi") DPI
+                                        input.form-control.no-zoom#dpi(name="dpi" type="number" min=0 ng-model='dpi' required, placeholder="dpi")
+
+                                .col-xs-6
+                                    .form-group
+                                        label.h6(for="ratio") W/H Ratio
+                                        input.form-control.no-zoom#ratio(name="ratio" type="number" min=0 ng-model='ratio' required placeholder="ratio")
+
+                                .col-xs-12
+                                    .form-group
+                                        label.h6(for="layout") Layout
+                                        select.form-control.no-zoom#layout(ng-model="layout")
+                                            option portrait
+                                            option landscape
+                        .col-xs-1
+                        .col-xs-7
+                            .card
+                                h7.card-title Margin
+                                .row
+                                    .col-xs-4.col-xs-offset-4
+                                        .form-group
+                                            input.form-control.no-zoom#margintop(name="margintop" type="number" min=0 ng-model='margintop' required, placeholder="margintop")
+                                .row
+                                    .col-xs-4
+                                        .form-group
+                                            input.form-control.no-zoom#marginleft(name="marginleft" type="number" min=0 ng-model='marginleft' required, placeholder="marginleft")
+                                    .col-xs-4
+                                    .col-xs-4
+                                        .form-group
+                                            input.form-control.no-zoom#marginright(name="marginright" type="number" min=0 ng-model='marginright' required, placeholder="marginright")
+                                .row
+                                    .col-xs-4.col-xs-offset-4
+                                        .form-group
+                                            input.form-control.no-zoom#marginbottom(name="marginbottom" type="number" min=0 ng-model='marginbottom' required, placeholder="marginbottom")
+
+
+            .col-xs-12
+                include ../../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel();', aria-label="") Cancel
+                    button.btn.btn-primary(type="button" ,ng-click='answer();', ng-disabled="progress || validate.$invalid", aria-label="") OK

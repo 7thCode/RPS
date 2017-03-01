@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name="format-detection", content="telephone=no")
+        meta(name="msapplication-tap-highlight", content="no")
+        meta(name="viewport", content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height")
+        title Error
+        link(rel="stylesheet", type="text/css", href="/systems/stylesheets/font.css" async)
+        link(rel="stylesheet", type="text/css", href="/systems/stylesheets/styles.css" async)
+    body(style="background:linear-gradient(to right bottom, #455A64, #252a34);")
+        .container-fluid(style="text-align:center;")
+            article(style="margin:10vw;")
+                h1#title.limelight(style="text-align:left;font-size: 14.0vw;font-weight: 700;margin: 5vw 0 2vw 0;") #{status}
+                p.quicksand(style='margin: 2vw 0 2vw 0;font-size: 6vw;color:#d0d0d0;text-shadow: 0 0.3rem 0 #7f8c8d;font-weight: 100;') #{message}
