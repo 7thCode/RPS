@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title HTML 5 GeoLocation Demo
+        script(type='text/javascript').
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    s = position.coords.latitude+","+position.coords.longitude;
+                    alert(s);
+                });
+            } else {
+                alert("I'm sorry, but geolocation services are not supported by your browser.");
+            }
+    body

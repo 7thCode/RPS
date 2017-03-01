@@ -1,0 +1,45 @@
+extends ../../backoffice_layout
+
+block content
+    section.content-header
+        .h1.text-gray Groups
+        ol.breadcrumb.hidden-xs.hidden-sm
+            li
+                a.text-gray(href='/backoffice')
+                    i.fa.fa-dashboard
+                    |  Home
+    section.content(ng-controller="GroupController")
+        include partial/navbar
+        .box.box-info
+            .box-header.with-border
+                div
+                    .box-tools.pull-right
+                        button.btn.btn-box-tool(type='button', data-widget='collapse')
+                            i.fa.fa-minus
+                //div
+                    .box-tools.pull-right
+                        button.btn.btn-box-tool(ng-click="Create();")
+                            i.fa.fa-2x.fa-plus-circle.text-primary
+
+                include ../../systems/common/next_prev
+            .box-body
+                .table-responsive(style="height:70vh;overflow:scroll;")
+                    table.table.table-striped
+                        thead
+                            tr
+                                th groupname
+                                th create
+                        tbody
+                            tr.gradeX(ng-repeat="group in groups")
+                                td {{group.name}}
+                                td {{group.create | date: short}}
+                                td
+                                    .box-tools.pull-right
+                                        button.btn.btn-box-tool(type='button', ng-click="Delete(group);")
+                                            i.fa.fa-trash
+                                    .box-tools.pull-right
+                                        button.btn.btn-box-tool(type='button', ng-click="Open(group);")
+                                            i.fa.fa-pencil
+
+            .box-footer.clearfix
+                div(ng-bind="message")

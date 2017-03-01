@@ -1,0 +1,115 @@
+doctype html
+html(lang="ja")
+    head
+        meta(charset="utf-8")
+        meta(name="format-detection", content="telephone=no")
+        meta(name="msapplication-tap-highlight", content="no")
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(http-equiv="Content-Type" content="text/html")
+        meta(name="viewport", content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height")
+        title Install
+        link(rel="apple-touch-icon", sizes="57x57", href="/favicons/apple-touch-icon-57x57.png")
+        link(rel="apple-touch-icon", sizes="60x60", href="/favicons/apple-touch-icon-60x60.png")
+        link(rel="apple-touch-icon", sizes="72x72", href="/favicons/apple-touch-icon-72x72.png")
+        link(rel="apple-touch-icon", sizes="76x76", href="/favicons/apple-touch-icon-76x76.png")
+        link(rel="apple-touch-icon", sizes="114x114", href="/favicons/apple-touch-icon-114x114.png")
+        link(rel="apple-touch-icon", sizes="120x120", href="/favicons/apple-touch-icon-120x120.png")
+        link(rel="apple-touch-icon", sizes="144x144", href="/favicons/apple-touch-icon-144x144.png")
+        link(rel="apple-touch-icon", sizes="152x152", href="/favicons/apple-touch-icon-152x152.png")
+        link(rel="apple-touch-icon", sizes="180x180", href="/favicons/apple-touch-icon-180x180.png")
+        link(rel="icon", type="image/png", href="/favicons/favicon-32x32.png", sizes="32x32")
+        link(rel="icon", type="image/png", href="/favicons/favicon-194x194.png", sizes="194x194")
+        link(rel="icon", type="image/png", href="/favicons/favicon-96x96.png", sizes="96x96")
+        link(rel="icon", type="image/png", href="/favicons/android-chrome-192x192.png", sizes="192x192")
+        link(rel="icon", type="image/png", href="/favicons/favicon-16x16.png", sizes="16x16")
+        link(rel="manifest", href="/favicons/manifest.json")
+        link(rel="mask-icon", href="/favicons/safari-pinned-tab.svg", color="#010dff")
+        meta(name="msapplication-TileColor", content="#da532c")
+        meta(name="msapplication-TileImage", content="/mstile-144x144.png")
+        meta(name="theme-color", content="#ffffff")
+
+        // AdminLTE
+        //link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css')
+        link(rel='stylesheet', href='/bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css')
+        link(rel='stylesheet', href='/bower_components/AdminLTE/dist/css/AdminLTE.min.css')
+        link(rel='stylesheet', href='/bower_components/AdminLTE/dist/css/skins/_all-skins.min.css')
+        link(rel='stylesheet', href="/bower_components/imagehover.css/css/imagehover.min.css")
+        // AdminLTE
+        link(rel='stylesheet', type="text/css", href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', type="text/css", href='/bower_components/angular-bootstrap/ui-bootstrap-csp.css')
+        link(rel='stylesheet', type="text/css", href='/bower_components/font-awesome/css/font-awesome.min.css')
+        link(rel='stylesheet', type="text/css", href='/bower_components/animate.css/animate.min.css')
+        link(rel='stylesheet', type="text/css", href='/bower_components/angular-chips/dist/main.css')
+        link(rel='stylesheet', type="text/css", href='/bower_components/bootstrap-treeview/dist/bootstrap-treeview.min.css')
+        link(rel='stylesheet', type="text/css", href='/bower_components/animate.css/animate.min.css')
+        //link(rel='stylesheet', type="text/css", href="/bower_components/angular-loading-bar/build/loading-bar.min.css")
+
+        link(rel='stylesheet', type="text/css", href='/systems/stylesheets/progress.css')
+        link(rel="stylesheet", type="text/css", href="/systems/stylesheets/font.css")
+        link(rel="stylesheet", type="text/css", href="/systems/stylesheets/styles.css")
+        link(rel='stylesheet', type="text/css", href='/services/stylesheets/custom_bootstrap.css')
+        link(rel="stylesheet", type="text/css", href="/services/stylesheets/styles.css")
+
+    body.noto.hold-transition.skin-blue.sidebar-mini.fixed#body(ng-app="InstallApplication")
+        div(ng-show="progress", style="z-index:20000;position:fixed;top:50%;left:50%;margin-top:-70px;margin-left:-75px;")
+            #progress
+                #rond
+                    #test
+                #load
+        .wrapper
+            header.main-header
+                aside.main-sidebar()
+                    section.sidebar
+                            ul.sidebar-menu
+
+            .content-wrapper(style="padding-top: 50px;")
+                section.content-header
+                    h1.text-gray Setting
+                    ol.breadcrumb.hidden-xs.hidden-sm
+                        li
+                            a.text-gray(href='/backoffice')
+                                i.fa.fa-dashboard
+                                |  Home
+                section.content(ng-controller="InstallController")
+                    include ./partial/navbar
+                    .row
+                        .col-xs-12
+                            include ./partial/mid
+
+script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js")
+script(type="text/javascript", src="/socket.io/socket.io.js")
+script(type="text/javascript", src="/bower_components/lodash/dist/lodash.min.js")
+script(type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+script(type="text/javascript", src="/bower_components/angular/angular.min.js")
+script(type="text/javascript", src="/bower_components/angular-resource/angular-resource.min.js")
+script(type="text/javascript", src="/bower_components/angular-animate/angular-animate.min.js")
+script(type="text/javascript", src="/bower_components/angular-sanitize/angular-sanitize.min.js")
+script(type="text/javascript", src="/bower_components/angular-messages/angular-messages.min.js")
+script(type="text/javascript", src="/bower_components/angular-aria/angular-aria.min.js")
+script(type="text/javascript", src="/bower_components/angular-i18n/angular-locale_ja-jp.js")
+
+script(type='text/javascript', src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+script(type="text/javascript", src="/bower_components/angular-bootstrap/ui-bootstrap.min.js")
+script(type="text/javascript", src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js")
+
+script(type="text/javascript", src="/systems/common/services.js")
+
+script(type="text/javascript", src="/utility/installer/install_application.js")
+script(type="text/javascript", src="/utility/installer/install_controllers.js")
+script(type="text/javascript", src="/utility/installer/install_services.js")
+
+// AdminLTE
+script(src='/bower_components/AdminLTE/plugins/fastclick/fastclick.js')
+script(src='/bower_components/AdminLTE/dist/js/app.min.js')
+script(src='/bower_components/AdminLTE/plugins/sparkline/jquery.sparkline.min.js')
+script(src='/bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')
+script(src='/bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')
+script(src='/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js')
+script(src='/bower_components/AdminLTE/plugins/chartjs/Chart.min.js')
+script(src='/bower_components/AdminLTE/dist/js/demo.js')
+// AdminLTE
+
+
+
+
+

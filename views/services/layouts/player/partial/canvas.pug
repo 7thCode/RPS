@@ -1,0 +1,11 @@
+.box.box-primary
+    .box-header.with-border
+        .h6 layout: {{current_layout.name}}
+        .h6 article: {{current_article.name}}
+        .well.well-sm(layout="word-wrap:break-all;") https://#{domain}/layouts/render/{{userid}}/{{current_layout.name}}
+        .box-tools.pull-right
+            button.btn.btn-box-tool(type='button', data-widget='collapse')
+                i.fa.fa-minus
+    .box-body
+        div#wrapper(style="height:65vh;background-color:#dddddd; overflow:scroll;")
+            canvas#canvas(ng-show="opened", tabindex="1",style="position:absolute;background-color:#ffffff;")

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "format": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "type": "object",
+          "properties": {
+            "ModDate": {
+              "type": "string"
+            },
+            "CreationDate": {
+              "type": "string"
+            },
+            "Keywords": {
+              "type": "string"
+            },
+            "Subject": {
+              "type": "string"
+            },
+            "Author": {
+              "type": "string"
+            },
+            "Title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ModDate",
+            "CreationDate",
+            "Keywords",
+            "Subject",
+            "Author",
+            "Title"
+          ]
+        },
+        "layout": {
+          "type": "string"
+        },
+        "margins": {
+          "type": "object",
+          "properties": {
+            "right": {
+              "type": "integer"
+            },
+            "left": {
+              "type": "integer"
+            },
+            "bottom": {
+              "type": "integer"
+            },
+            "top": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "right",
+            "left",
+            "bottom",
+            "top"
+          ]
+        },
+        "size": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "info",
+        "layout",
+        "margins",
+        "size"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "format",
+    "text",
+    "subtitle",
+    "title"
+  ]
+}

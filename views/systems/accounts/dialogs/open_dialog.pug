@@ -1,0 +1,27 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Account
+        span.pull-right
+            button.btn.btn-box-tool(type='button',ng-click='cancel()')
+                i.fa.fa-times
+    .modal-body.noto
+        .row
+            .col-xs-12
+                div provider: {{items.provider}}
+            .col-xs-12
+                div type: {{items.type}}
+            .col-xs-12
+                div userid: {{items.userid}}
+            .col-xs-12
+                div username: {{items.username}}
+            .col-xs-12
+                div enabled: {{items.enabled}}
+        .row
+            .col-xs-12
+                include ../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel()', aria-label="") Cancel

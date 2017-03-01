@@ -1,0 +1,39 @@
+nav.navbar.navbar-default.navbar-fixed-top.shadow(style="position:fixed;" role="navigation")
+    .container-fluid.noto
+        .navbar-header
+            button.btn-primary.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-navbar')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand.page-scroll(href="/", ng-click="go('/')") Layouts
+                //i.ion-ios-analytics-outline(style="text-align:center;") #{type}
+        #bs-navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav
+                if user
+                    li.dropdown
+                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                            | Layouts
+                        ul.dropdown-menu(role="menu")
+                            li
+                                a(href="#", ng-click="CreateFromTemplate();", role="menuitem") Create from Template...
+                            //li
+                                a(href="#", ng-click="Open();") Open ...
+                            li(ng-class="{disabled: !opened}")
+                                a(href="#", ng-click="opened && Update();", role="menuitem") Save
+                            li.divider
+                            li(ng-class="{disabled: !opened}")
+                                a(href="", ng-click="opened && UpdateAs();", role="menuitem") Save As...
+                            li.divider
+                            li(ng-class="{disabled: !opened}")
+                                a(href="#", ng-click="opened && Delete();", role="menuitem") Delete
+                    li.dropdown(ng-class="{disabled: !opened}")
+                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                            | Print
+                        ul.dropdown-menu(role="menu")
+                            li
+                                a(href="", ng-click="opened && PrintPDF();", role="menuitem") PDF
+                            li
+                                a(href="", ng-click="opened && PrintSVG();", role="menuitem") SVG
+                            li
+                                a(href="", ng-click="opened && PrintPNG();", role="menuitem") PNG

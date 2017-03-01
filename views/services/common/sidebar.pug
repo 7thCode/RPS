@@ -1,0 +1,175 @@
+aside.main-sidebar(ng-controller='LoginController')
+    section.sidebar
+        if user
+            .user-panel
+                .pull-left.image
+                    img.img-circle(src="/files/api/" + user.userid + "/" + user.username, style="width:5rem;height:5rem;", alt='')
+                .pull-left.info
+                    p #{user.local.nickname}
+                    a(href='#')
+                        i.fa.fa-circle.text-success
+                        |  #{user.type}
+
+            //form.sidebar-form(action='#', method='get')
+                .input-group
+                    input.form-control(type='text', name='q', placeholder='Search...')
+                    span.input-group-btn
+                        button#search-btn.btn.btn-flat(type='submit', name='search')
+                            i.fa.fa-search
+
+            ul.sidebar-menu
+                li
+                    a(href="/profile" data-toggle="tooltip" data-placement="bottom" title="Profile")
+                        i.fa.fa-user.fa-fw
+                        span Profile
+
+                li
+                    a(href="/articles" data-toggle="tooltip" data-placement="bottom" title="Articles")
+                        i.fa.fa-list.fa-fw
+                        span Articles
+
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-th-large
+                        span Form
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-right
+                    ul.treeview-menu
+                        li
+                            a(href='/forms/builder' data-toggle="tooltip" data-placement="bottom" title="Builder")
+                                i.fa.fa-pencil
+                                | Builder
+                        li
+                            a(href='/forms' data-toggle="tooltip" data-placement="bottom" title="Player")
+                                i.fa.fa-eye
+                                | Player
+
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-th-large
+                        span Layouts
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-right
+                    ul.treeview-menu
+                        li
+                            a(href='/layouts/builder' data-toggle="tooltip" data-placement="bottom" title="Builder")
+                                i.fa.fa-pencil
+                                | Builder
+                        li
+                            a(href='/layouts' data-toggle="tooltip" data-placement="bottom" title="Player")
+                                i.fa.fa-eye
+                                | Player
+
+
+
+                li
+                    a(href="/images" data-toggle="tooltip" data-placement="bottom" title="Images")
+                        i.fa.fa-picture-o.fa-fw
+                        span Images
+
+                li
+                    a(href="/groups" data-toggle="tooltip" data-placement="bottom" title="Groups")
+                        i.fa.fa-users.fa-fw
+                        span Groups
+
+                li.treeview
+                    a(href='#')
+                        i.fa.fa-th-large
+                        span System
+                        span.pull-right-container
+                            i.fa.fa-angle-left.pull-right
+                    ul.treeview-menu
+
+                        li.treeview
+                            a(href='#')
+                                i.fa.fa-th-large
+                                span Resources
+                                span.pull-right-container
+                                    i.fa.fa-angle-left.pull-right
+                            ul.treeview-menu
+                                li
+                                    a(href='/resources/builder' data-toggle="tooltip" data-placement="bottom" title="Builder")
+                                        i.fa.fa-pencil
+                                        | Builder
+                                li
+                                    a(href='/resources' data-toggle="tooltip" data-placement="bottom" title="Player")
+                                        i.fa.fa-eye
+                                        | Player
+                        li
+                            a(href="/files" data-toggle="tooltip" data-placement="bottom" title="Files")
+                                i.fa.fa-picture-o.fa-fw
+                                span Files
+
+                        //li
+                            a(href='/pages' data-toggle="tooltip" data-placement="bottom" title="pages Player")
+                                i.fa.fa-eye
+                                | Player
+                        li
+                            a(href="/accounts" data-toggle="tooltip" data-placement="bottom" title="Accounts")
+                                i.fa.fa-user.fa-fw
+                                span Accounts
+
+                        li
+                            a(href="/analysis" data-toggle="tooltip" data-placement="bottom" title="Analysis")
+                                i.fa.fa-line-chart.fa-fw
+                                span Analysis
+                        li
+                            a(href="/setting" data-toggle="tooltip" data-placement="bottom" title="Setting")
+                                i.fa.fa-sliders.fa-fw
+                                span Setting
+                        li
+                            a(href="/rewriting" data-toggle="tooltip" data-placement="bottom" title="Site Setting")
+                                i.fa.fa-sitemap.fa-fw
+                                span Site Setting
+                li
+                    a(href="#", ng-click="showMemberDialog();" data-placement="bottom" data-toggle="tooltip" title="Members")
+                        i.fa.fa-user-plus.fa-fw
+                        span Members
+                if user.provider == "local"
+                    li
+                        a(href='#', ng-click="showPasswordDialog()" data-placement="bottom" data-toggle="tooltip" title="Password")
+                            i.fa.fa-key.fa-fw
+                            span Password
+                li
+                    a(href="/" data-toggle="tooltip" data-placement="bottom" title="Front")
+                        i.fa.fa-coffee.fa-fw
+                        span  Front
+
+                //if user.type == "System"
+                    li
+                        a(href='/backoffice' data-toggle="tooltip" data-placement="bottom" title="BackOffice")
+                            span.fa-stack
+                                i.fa.fa-cog.fa-spin.text-info
+                                i.fa.fa-cog.fa-spin.fa-rotate-180.text-danger
+                            span BackOffice
+                li
+                    a(href='#', ng-click="Logout()" data-toggle="tooltip" data-placement="bottom" title="Logout")
+                        i.fa.fa-sign-out
+                        span Logout
+                li
+                    a(href='#' data-toggle="tooltip" data-placement="bottom" title="Close")
+                        input(type="checkbox" data-layout="sidebar-collapse")
+                        span &nbsp;&nbsp;Close
+        else
+            .user-panel
+                .pull-left.image
+                    img.img-circle(src="systems/resources/files/blank.png", style="width:5rem;height:5rem;", alt='')
+
+            ul.sidebar-menu
+                li
+                    a(href="#", ng-click="showLoginDialog()" data-toggle="tooltip" data-placement="bottom" title="Login")
+                        i.fa.fa-sign-in.fa-fw
+                        span Login
+                li
+                    a(href='#', ng-click="showPasswordDialog()" data-placement="bottom" data-toggle="tooltip" title="Password")
+                        i.fa.fa-key.fa-fw
+                        span Password
+                li
+                    a(href="#", ng-click="showRegisterDialog({})" data-toggle="tooltip" data-placement="bottom" title="Regist")
+                        i.fa.fa-user-plus.fa-fw
+                        span Regist
+
+                //li
+                    a(href="#", ng-click="showRegisterDialog({userid:'123'})" data-toggle="tooltip" data-placement="bottom" title="Regist")
+                        i.fa.fa-user-plus.fa-fw
+                        span Regist

@@ -1,0 +1,11 @@
+nav.navbar.navbar-default.navbar-fixed-top.shadow(style="position:fixed;", ng-controller='LoginController' role="navigation")
+    .container-fluid(style="padding:0").noto
+        .navbar-header(style="padding-left:10px;")
+            button.btn-primary.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-navbar')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand.page-scroll(href="/", ng-click="go('/')", style="padding: 5px;")
+
+        #bs-navbar.navbar-collapse.collapse(style="padding-right:10px;background:#eeeeee;")

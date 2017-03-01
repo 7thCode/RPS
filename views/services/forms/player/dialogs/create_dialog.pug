@@ -1,0 +1,26 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Layouts ({{count}})
+        span.pull-right
+            button.btn.btn-info(style="border-radius:0.6rem 0 0 0.6rem;", ng-click="Next()")
+                i.fa.fa-chevron-down
+            button.btn.btn-default(style="border-radius:0 0.6rem 0.6rem 0;",ng-click="Prev()")
+                i.fa.fa-chevron-up
+    .modal-body.noto
+        .row
+            .col-xs-12
+                ul.nav.nav-pills
+                    li(ng-click="Get(form)",ng-repeat="form in pages")
+                        div.select-item
+                            .row
+                                .col-xs-12
+                                    div(ng-bind="form.name | limit:20")
+        .row
+            .col-xs-12
+                include ../../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel()', aria-label="") Cancel

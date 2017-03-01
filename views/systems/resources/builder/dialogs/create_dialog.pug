@@ -1,0 +1,41 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Create
+        span.pull-right
+            button.btn.btn-box-tool(type='button',ng-click='cancel()')
+                i.fa.fa-times
+    .modal-body.noto
+        .row
+            .col-xs-12(style="word-wrap:break-word;word-break:break-all")
+                ng-form(name="validate")
+                    .row
+                        .col-xs-10
+                            .form-group
+                                label(for="name") Title
+                                span(ng-messages="validate.title.$error")
+                                    span.error-message(ng-message="required") #{messages.required}
+                                    span.error-message(ng-message="maxlength") #{messages.long}
+                                input.form-control.no-zoom#name(ng-model="title", type="text", name='title', required, ng-maxlength="50")
+                        .col-xs-2
+                            .form-group
+                                label(for="name") Type
+                                span(ng-messages="validate.type.$error")
+                                input.form-control.no-zoom#type(ng-model="type", type="number", name='type', min="0", max="1000")
+                    .row
+                        .col-xs-12
+                            .form-group
+                                label(for="mimetype") mimetype
+                                select.form-control.no-zoom#mimetype(ng-model="mimetype")
+                                    option text/html
+                                    option text/css
+                                    option text/javascript
+
+        .row
+            .col-xs-12
+                include ../../../../systems/common/error_message
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel()', aria-label="") Cancel
+                    button.btn.btn-primary(type="button" ,ng-click='answer();', ng-disabled="progress || validate.$invalid", aria-label="") OK

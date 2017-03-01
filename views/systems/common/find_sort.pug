@@ -1,0 +1,9 @@
+.input-group
+    span.input-group-addon find
+    input.form-control.no-zoom(ng-model='find_name', name="find_name", type='text', ng-maxlength="30", placeholder='Name', ng-change="Find(find_name);")
+    span.input-group-btn
+        button.btn.btn-sm.btn-primary(style="border-radius:0 0 0 0;",type="button", ng-click="Sort('create');")
+            i.fa.fa-calendar
+    span.input-group-btn
+        button.btn.btn-sm.btn-secondary(style="border-radius:0 0.6rem 0.6rem 0;",type="button", ng-click="Sort('name');")
+            i.fa.fa-home

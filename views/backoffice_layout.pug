@@ -1,0 +1,52 @@
+doctype html
+html(lang="ja")
+    head
+        meta(charset="utf-8")
+        meta(name="format-detection", content="telephone=no")
+        meta(name="msapplication-tap-highlight", content="no")
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(http-equiv="Content-Type" content="text/html")
+        meta(name="viewport", content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height")
+        title BackOffice
+        include ./systems/common/favicon
+
+        // AdminLTE
+        //link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css')
+        link(rel='stylesheet', href='/bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css' async)
+        link(rel='stylesheet', href='/bower_components/AdminLTE/dist/css/AdminLTE.min.css' async)
+        link(rel='stylesheet', href='/bower_components/AdminLTE/dist/css/skins/_all-skins.min.css' async)
+        link(rel='stylesheet', href="/bower_components/imagehover.css/css/imagehover.min.css" async)
+        // AdminLTE
+
+        include ./systems/common/webfonts
+
+        include ./systems/common/stylesheets
+        include ./services/common/stylesheets
+        include ./plugins/common/stylesheets
+        include ./applications/common/stylesheets
+
+    body.control.noto.hold-transition.skin-blue.sidebar-mini.fixed#body(ng-app="BackOfficeApplication", ng-controller="BackOfficeController")
+        //include ./systems/common/progress
+        .wrapper
+            header.main-header
+                include ./services/common/sidebar
+            .content-wrapper(style="padding-top: 50px;height:100vh;overflow:scroll;")
+                block content
+
+include ./systems/common/scripts
+include ./services/common/scripts
+include ./plugins/common/scripts
+include ./applications/common/scripts
+
+script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5eKMldq5KurlcXkiLXmcuVn0X_vMwTQ")
+
+// AdminLTE
+script(src='/bower_components/AdminLTE/plugins/fastclick/fastclick.js',async)
+script(src='/bower_components/AdminLTE/dist/js/app.min.js',async)
+script(src='/bower_components/AdminLTE/plugins/sparkline/jquery.sparkline.min.js',async)
+script(src='/bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js',async)
+script(src='/bower_components/AdminLTE/plugins/jvectormap/jquery-jvectormap-world-mill-en.js',async)
+script(src='/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js',async)
+script(src='/bower_components/AdminLTE/plugins/chartjs/Chart.min.js',async)
+script(src='/bower_components/AdminLTE/dist/js/demo.js',async)
+// AdminLTE

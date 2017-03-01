@@ -1,0 +1,24 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Div
+    .modal-body.noto
+        .row.row-padded
+            .col-xs-12(style="word-wrap:break-word;word-break:break-all")
+                ng-form(name="validate")
+                    .row
+                        .col-xs-12
+                            .form-group
+                                label(for="klass") Class
+                                span(ng-messages="validate.klass.$error")
+                                    span.error-message(ng-message="maxlength") もう少し短く
+                                input.form-control.no-zoom#klass(ng-model="klass", type="text", name='klass', ng-maxlength="200")
+
+            .col-xs-12
+                include ../../../../../systems/common/error_message
+
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='cancel()', aria-label="") Cancel
+                    button.btn.btn-primary(type="button" ,ng-click='answer();validate.$dirty = false;', ng-disabled="progress || validate.$invalid || !validate.$dirty", aria-label="") OK

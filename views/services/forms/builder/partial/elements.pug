@@ -1,0 +1,32 @@
+.box.box-info
+    .box-header
+        .h6 Element
+        .box-tools.pull-right
+            button.btn.btn-sm.btn-box-tool(type='button', data-widget='collapse')
+                i.fa.fa-minus
+    .box-body
+        .row
+            .col-xs-12.text-center
+                .btn-group(role="group",style="width:100%;")
+                    button.btn.btn-sm.btn-primary(ng-click="up();",style="width:33%;")
+                        i.fa.fa-chevron-up
+                        span.hidden-xs.hidden-sm.hidden-md Up
+                    button.btn.btn-sm.btn-info(ng-click="down();",style="width:34%;")
+                        i.fa.fa-chevron-down
+                        span.hidden-xs.hidden-sm.hidden-md Down
+                    button.btn.btn-sm.btn-danger(ng-click="delete();",style="width:33%;")
+                        i.fa.fa-trash
+                        span.hidden-xs.hidden-sm.hidden-md Delete
+        .row
+            .col-xs-12.text-center
+                button.btn.btn-sm.btn-secondaly(ng-click="deselect();",style="width:100%;")
+                    i.fa.fa-check
+                    span.hidden-xs.hidden-sm.hidden-md select root
+        .row
+            .col-xs-12
+                div(style="height:80vh;overflow:scroll")
+                    table.table.table-striped
+                        tr(ng-repeat="element in current_page")
+                            td.row(ng-class="{selected: hover  || ElementSelected(element.id)}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="ElementSelect(element.id);")
+                                .col-xs-6(ng-bind="element.type")
+                                .col-xs-6(ng-bind="element.id")

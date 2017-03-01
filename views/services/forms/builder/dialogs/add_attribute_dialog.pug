@@ -1,0 +1,34 @@
+.modal-content
+    .modal-header
+        span.h5.modal-title Add Attribute
+        span.pull-right
+            button.btn.btn-box-tool(type='button',ng-click='cancel()')
+                i.fa.fa-times
+    .modal-body.noto
+        .row.row-padded
+            .col-xs-12(style="word-wrap:break-word;word-break:break-all")
+                ng-form(name="validate")
+                    .row
+                        .col-xs-6
+                            .form-group
+                                label(for="name") attribute
+                                span(ng-messages="validate.name.$error")
+                                    span.error-message(ng-message="required") #{messages.required}
+                                    span.error-message(ng-message="maxlength") #{messages.long}
+                                input.form-control.no-zoom#name(ng-model="dialog.key", type="text", name='name', required, ng-maxlength="50")
+                        .col-xs-6
+                            .form-group
+                                label(for="value") value
+                                span(ng-messages="validate.value.$error")
+                                    span.error-message(ng-message="required") #{messages.required}
+                                    span.error-message(ng-message="maxlength") #{messages.long}
+                                input.form-control.no-zoom#value(ng-model="dialog.value", type="text", name='value', required, ng-maxlength="50")
+
+            .col-xs-12
+                include ../../../../systems/common/error_message
+    .modal-footer
+        .row
+            .col-xs-12
+                .text-center(style="margin:2rem;")
+                    button.btn.btn-warning(type="button", ng-click='dialog.cancel()', aria-label="") Cancel
+                    button.btn.btn-primary(type="button" ,ng-click='dialog.answer();validate.$dirty = false;', ng-disabled="progress || validate.$invalid || !validate.$dirty", aria-label="") OK

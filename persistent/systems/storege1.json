@@ -1,0 +1,78 @@
+{
+  "/": {
+    "hoge.html":{
+
+      "attribute":"file",
+      "title":"title",
+      "meta_header":[{
+        "name":"meta",
+        "attributes": {
+          "name":"description",
+          "content":"aaaaaaaaaaaaaaaaa"
+        }}, {
+        "name":"meta",
+        "attributes":{
+          "property":"og:type",
+          "content":"aaaaaaaaaaaaaaaaa"
+        }
+      }]
+
+    },
+
+    "hoge124.html":{
+
+      "attribute":"file",
+      "title":"title",
+      "meta_header":[{
+        "name":"meta",
+        "attributes": {
+          "name":"description",
+          "content":"aaaaaaaaaaaaaaaaa"
+        }}, {
+        "name":"meta",
+        "attributes":{
+          "property":"og:type",
+          "content":"aaaaaaaaaaaaaaaaa"
+        }
+      }]
+    },
+
+    "boewr_conpornet":{
+
+      "hoge124.html":{
+        "attribute":"file",
+        "title":"title",
+        "meta_header":[{
+          "name":"meta",
+          "attributes": {
+            "name":"description",
+            "content":"aaaaaaaaaaaaaaaaa"
+          }}, {
+          "name":"meta",
+          "attributes":{
+            "property":"og:type",
+            "content":"aaaaaaaaaaaaaaaaa"
+          }
+        }]
+      },
+      "hoge122334.html":{
+        "attribute":"file",
+        "title":"title",
+        "meta_header":[{
+          "name":"meta",
+          "attributes": {
+            "name":"description",
+            "content":"aaaaaaaaaaaaaaaaa"
+          }}, {
+          "name":"meta",
+          "attributes":{
+            "property":"og:type",
+            "content":"aaaaaaaaaaaaaaaaa"
+          }
+        }]
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,17 @@
+extends ../../backoffice_layout
+
+block content
+    div
+        section.content-header
+            .h5.text-gray
+                | BackOffice
+                small(style="color:#bbbbbb;") Version 1.0
+            ol.breadcrumb.hidden-xs.hidden-sm
+                li
+                    a.text-gray(href='#')
+                        i.fa.fa-dashboard
+                        |  Home
+        section.content(style="height:95vh;overflow:scroll;")
+            include partial/navbar
+            .container-fluid(style="text-align:center;")
+                button.btn.btn-warning(type="button", ng-click='Notify();', aria-label="") Notify

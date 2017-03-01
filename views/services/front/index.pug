@@ -1,0 +1,28 @@
+extends ../../backoffice_layout
+
+block content
+    div
+        if user
+            section.content-header
+                .h5.text-gray Front
+                ol.breadcrumb.hidden-xs.hidden-sm
+                    li
+                        a.text-gray(href='/backoffice')
+                            i.fa.fa-dashboard
+                            |  Home
+            section.content(style="height:95vh;overflow:scroll;")
+                include ./partial/navbar
+                h1#title.wf-nicomoji(style="text-align:left;font-size: 14.0vw;font-weight: 700;margin: 5vw 0 2vw 0;") #{status}
+                    p.wf-nikukyu(style='margin: 2vw 0 2vw 0;font-size: 6vw;color:#d0d0d0;text-shadow: 0 0.3rem 0 #7f8c8d;font-weight: 100;') #{message}
+
+        else
+            section.content-header
+                .h1.text-gray Front
+                ol.breadcrumb.hidden-xs.hidden-sm
+                    li
+                        a.text-gray(href='/backoffice')
+                            i.fa.fa-dashboard
+                            |  Home
+            section.content(style="height:95vh;overflow:scroll;")
+                include ./partial/navbar
+

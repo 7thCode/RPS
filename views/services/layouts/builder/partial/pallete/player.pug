@@ -1,0 +1,59 @@
+uib-tabset(active='activeForm')
+    uib-tab(id="{{name}}",heading="{{name}}" role='tabpanel',ng-repeat="(name, field) in fields")
+        ng-form(name='nestedForm')
+            .box.box-warning
+                .box-body
+                    .row
+                        .col-xs-6
+                            label.h6(for="Mode") Mode
+                            select.form-control.no-zoom#Mode(ng-model="field.mode", ng-change="modeChange(field.mode, name)")
+                                option dynamic
+                                option static
+                                option lookup
+
+                        .col-xs-6(ng-show="field.mode == 'dynamic'")
+                            label.h6(for="Type") Type
+                            select.form-control.no-zoom#Type(ng-model="field.type", ng-change="typeChange(field.type, name)")
+                                option text
+                                option textarea
+                                option select
+                                option radio
+                                option checkbox
+                                option color
+
+                    .row(ng-show="field.mode == 'lookup'")
+                        .col-xs-12
+                            label.h6(for="Lookup") Lookup
+                            span(ng-messages="content.Lookup.$error")
+                                span.error-message(ng-message="maxlength") もう少し短く
+                            input.form-control.no-zoom#Lookup(ng-model="field.lookup", type="text", name='Lookup', ng-maxlength="50", ng-change="lookupChange(field.lookup, name)")
+
+                    .row(ng-show="field.mode == 'dynamic'")
+                        .col-xs-6
+                            label.h6(for="Label") Label
+                            span(ng-messages="content.Label.$error")
+                                span.error-message(ng-message="maxlength") もう少し短く
+                            input.form-control.no-zoom#Label(ng-model="field.label", type="text", name='Label', ng-maxlength="50", ng-change="labelChange(field.label, name)")
+
+                        .col-xs-6
+                            label.h6(for="Required") Required
+                            select.form-control.no-zoom#Required(ng-model="field.validate.required", ng-change="requiredChange(field.required, name)")
+                                option true
+                                option false
+
+                    .row(ng-show="(field.mode == 'dynamic') && (name != 'color')")
+                        .col-xs-6
+                            label.h6(for="Maxlength") Maxlength
+                            input.form-control.no-zoom#Maxlength(name="Maxlength" type="number" min=0 ng-model='field.validate["ng-maxlength"]' placeholder="Maxlength", ng-change="maxlengthChange(field.validate['ng-maxlength'], name)")
+                        .col-xs-6
+                            label.h6(for="Minlength") Minlength
+                            input.form-control.no-zoom#Minlength(name="Minlength" type="number" min=0 ng-model='field.validate["ng-minlength"]' placeholder="Minlength", ng-change="minlengthChange(field.validate['ng-minlength'], name)")
+
+                    .row(ng-show="field.mode == 'dynamic'")
+                        .col-xs-12
+                            label.h6(for="Options") Options
+                            chips(ng-model='field.options',style="height: 36px;", ng-change="optionsChange(field.options, name)")
+                                chip-tmpl
+                                    .default-chip {{chip}}
+                                        span.fa.fa-times(remove-chip='')
+                                input#Options(name="Options",style="background-color:transparent;" chip-control)

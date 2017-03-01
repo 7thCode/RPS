@@ -1,0 +1,22 @@
+.box.box-info.pallete-shadow.pallete-background(draggablepane="article", style="width:300px;height:auto;left:240px;top:210px;")
+    .box-header
+        div
+            .box-tools.pull-right
+                button.btn.btn-box-tool(type='button', data-widget='collapse')
+                    i.fa.fa-minus
+        span.hidden-xs.hidden-sm
+            include ../../../systems/common/next_prev
+        .btn-group(role="group", style="margin-top:5px;width:100%")
+            button.btn.btn-sm.btn-primary(ng-click="CreateArticle();",style="width:50%;")
+                i.fa.fa-plus
+                span.hidden-xs.hidden-sm  Create
+
+            button.btn.btn-sm.btn-danger(ng-class="{disabled: !opened}", ng-click="DeleteArticle();", ng-disabled="!Selected();",style="width:50%;")
+                i.fa.fa-trash
+                span.hidden-xs.hidden-sm Delete
+
+    .box-body
+        table.table.table-striped(ng-cloak)
+            tr(ng-repeat="article in articles")
+                td(ng-class="{selected: hover  || ArticleSelected(article._id)}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="SelectArticle(article._id);")
+                    span(ng-bind="article.name")

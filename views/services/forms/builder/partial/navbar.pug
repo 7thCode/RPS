@@ -1,0 +1,26 @@
+nav.navbar.navbar-default.navbar-fixed-top.shadow(role="navigation")
+    .container-fluid.noto
+        .navbar-header
+            button.btn-primary.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-navbar')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand.page-scroll(href="/", ng-click="go('/')") Form
+                //i.ion-ios-analytics-outline(style="text-align:center;") #{type}
+        #bs-navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav
+                if user
+                    li.dropdown
+                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                            | Form
+                        ul.dropdown-menu(role="menu")
+                            li
+                                a(href="#", ng-click="Create();", role="menuitem") Create
+                            li
+                                a(href="", ng-click="Open();") Open...
+                            li(ng-class="{disabled: !opened}")
+                                a(href="", ng-click="opened && Update();", role="menuitem") Save
+                            li.divider
+                            li(ng-class="{disabled: !opened}" )
+                                a(href="", ng-click="opened && Delete();", role="menuitem") Delete
